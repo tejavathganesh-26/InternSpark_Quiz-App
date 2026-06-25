@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 QuizMaster Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="container" id="app">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">🎯</div>
+                <h1>Quiz<span>Master</span></h1>
+            </div>
+            <div class="header-actions">
+                <button id="soundToggle" class="sound-btn" title="Toggle Sound">🔊</button>
+                <button id="themeToggle" class="theme-btn" title="Toggle Theme">🌙</button>
+            </div>
+        </header>
+
+        <!-- HOME SCREEN -->
+        <div id="homeScreen" class="screen active">
+            <div class="home-content">
+                <div class="home-icon">🧠</div>
+                <h2>Challenge Your Mind</h2>
+                <p>Test your knowledge across 8 different programming languages!</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">📊 Total Quizzes</span>
+                        <span class="stat-value" id="totalQuizzes">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">🏆 Highest Score</span>
+                        <span class="stat-value" id="highestScore">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">🎯 Accuracy</span>
+                        <span class="stat-value" id="accuracyPercent">0%</span>
+                    </div>
+                </div>
+
+                <button id="startQuizBtn" class="btn btn-primary btn-lg btn-glow">🚀 Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- SETUP SCREEN -->
+        <div id="setupScreen" class="screen">
+            <div class="setup-container">
+                <h2>⚙️ Quiz Setup</h2>
+                <div class="form-group">
+                    <label>📚 Select Language</label>
+                    <select id="categorySelect" class="form-control"></select>
+                </div>
+                <div class="form-actions">
+                    <button id="startQuizBtn2" class="btn btn-primary">🎯 Start Quiz</button>
+                    <button id="backHomeBtn" class="btn btn-secondary">← Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ SCREEN -->
+        <div id="quizScreen" class="screen">
+            <div class="quiz-header">
+                <div class="quiz-meta">
+                    <span class="badge badge-primary" id="categoryDisplay">Language</span>
+                </div>
+                <div class="quiz-stats">
+                    <span>⭐ <span id="scoreDisplay">0</span></span>
+                    <span>📝 <span id="questionCounter">1/10</span></span>
+                </div>
+            </div>
+
+            <div class="progress-wrapper">
+                <div class="progress-track">
+                    <div id="progressBar" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="timer-wrapper">
+                <div id="timerCircle" class="timer-ring">
+                    <span id="timerText">20s</span>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-number" id="questionNumber">Question 1 of 10</div>
+                <div class="question-text" id="questionText">Loading question...</div>
+                <div id="optionsContainer" class="options-grid"></div>
+            </div>
+
+            <div class="nav-bar">
+                <button id="prevBtn" class="nav-btn">← Previous</button>
+                <button id="nextBtn" class="nav-btn">Next →</button>
+                <button id="submitBtn" class="btn btn-success">📝 Submit</button>
+            </div>
+
+            <div class="palette-wrapper">
+                <h4>📋 Question Palette</h4>
+                <div id="palette" class="palette-grid"></div>
+            </div>
+
+            <div id="streakDisplay" class="streak-display">
+                🔥 Streak: <span id="streakCount">0</span>
+            </div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-content">
+                <h2>🎉 Quiz Complete!</h2>
+                <p class="results-subtitle">Here's how you performed</p>
+                <div id="confettiContainer"></div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <span class="label">⭐ Score</span>
+                        <span class="value gold" id="finalScore">0</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="label">✅ Correct</span>
+                        <span class="value green" id="correctCount">0</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="label">❌ Wrong</span>
+                        <span class="value red" id="wrongCount">0</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="label">🎯 Accuracy</span>
+                        <span class="value" id="accuracyResult">0%</span>
+                    </div>
+                </div>
+
+                <div class="achievement-display" id="achievementBadge"></div>
+
+                <div class="results-actions">
+                    <button id="reviewBtn" class="btn btn-secondary">📋 Review</button>
+                    <button id="playAgainBtn" class="btn btn-primary">🔄 Play Again</button>
+                    <button id="homeBtn" class="btn btn-secondary">🏠 Home</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- REVIEW SCREEN -->
+        <div id="reviewScreen" class="screen">
+            <div class="review-box">
+                <h2>📋 Answer Review</h2>
+                <div id="reviewContainer" class="review-container"></div>
+                <button id="backToResultsBtn" class="btn btn-secondary" style="margin-top:20px;">← Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
